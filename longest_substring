@@ -1,0 +1,18 @@
+def length_of_longest_substring(s)
+    result = []
+    s.split("").each_index do |idx|
+        holder = s[idx]
+        result = holder if holder.length > result.length
+        s.split("").each_with_index do |char, idx2|
+          next if idx2 < idx
+            unless holder.include?(char)
+                holder << char
+                result = holder if holder.length > result.length
+            else
+                holder = []
+            end
+        end
+    end
+    result.length
+end
+
