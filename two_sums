@@ -1,0 +1,13 @@
+def two_sum(nums, target)
+    hash = {}
+    nums.each_with_index {|el, i| hash[el] = i}
+    p hash
+    nums.each_index do |i|
+        complement = target - nums[i]
+        p complement
+        return [i, hash[complement]] if hash.include?(complement) && hash[complement] != i
+    end
+    nil
+end
+
+
