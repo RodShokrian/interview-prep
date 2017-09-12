@@ -16,3 +16,21 @@ def length_of_longest_substring(s)
     result.length
 end
 
+def length_of_longest_substring(s)
+    result = 0
+    holder = {}
+    i = 0
+    j = 0
+    while i < s.length && j < s.length
+      unless holder.include?(s[j])
+        holder[s[j]] = 1
+        j += 1
+        result = j - i if j - i > result
+      else
+        holder.delete(s[i])
+        i += 1
+      end
+    end
+    result
+end
+
