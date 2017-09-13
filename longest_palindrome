@@ -1,0 +1,18 @@
+
+def longest_palindrome(s)
+    result = ""
+    holder = ""
+    i = 0
+    j = 0
+    while i < s.length
+        holder = s[i..j]
+        result = holder if holder.reverse == holder && holder.length > result.length
+        j += 1
+        if j == s.length
+            i += 1
+            j = i
+        end
+    end
+    result
+end
+
